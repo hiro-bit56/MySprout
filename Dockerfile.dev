@@ -1,0 +1,22 @@
+FROM ruby:3.4.9
+ENV RAILS_ENV=development
+
+RUN apt-get update -qq && apt-get install -y \
+      ca-certificates curl gnupg \
+      postgresql-client \
+      build-essential git \
+      vim
+
+# yarn のリポジトリを追加
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor -o /usr/share/keyrings/yarnkey.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# nodejs と yarn をインストール&パッケージリストのクリーンアップ
+RUN apt-get update -qq && apt-get install -y \
+      nodejs yarn \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /myapp
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+COPY . ./
+# CMD ["bin/dev"] は compose.yml で指定
