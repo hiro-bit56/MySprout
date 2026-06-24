@@ -1,0 +1,27 @@
+<% content_for(:title, t('.title')) %>
+<div class="w-full mx-auto border-1 rounded-lg">
+  <div class=" border-b rounded-lg bg-[#8DF99E]/80">
+    <h1 class="text-center"><%= t('.title') %></h1>
+  </div>
+  <%= form_with model: @user do |f| %>
+    <div class="mb-3 ml-3">
+      <%= f.label :name, class: "block mb-1" %>
+      <%= f.text_field :name, class: "border-1 rounded-lg w-5/6" %>
+    </div>
+    <div class="mb-3 ml-3">
+      <%= f.label :email, class: "block mb-1" %>
+      <%= f.email_field :email, class: "border-1 rounded-lg w-5/6" %>
+    </div>
+    <div class="mb-3 ml-3">
+      <%= f.label :password, class: "block mb-1" %>
+      <%= f.password_field :password, class: "border-1 rounded-lg w-5/6" %>
+    </div>
+    <div class="mb-3 ml-3">
+      <%= f.label :password_confirmation, class: "block mb-1" %>
+      <%= f.password_field :password_confirmation, class: "border-1 rounded-lg w-5/6" %>
+    </div>
+    <div class="mb-3 text-right mr-5">
+      <%= f.submit class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+    </div>
+  <% end %>
+</div>
