@@ -11,5 +11,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "homes#index"
+
+  # 本来のルート
+  # root "homes#index"
+
+  # 実装確認用のルート
+  root "users#new"
+
+  resources :users, only: %i[new create]
 end
