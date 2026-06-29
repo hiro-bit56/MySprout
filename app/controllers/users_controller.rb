@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path, success: t('users.create.success')
     else
-      flash.now[:danger] = t('users.create.failure')
+      flash.now[:alert] = t('users.create.failure')
       render :new, status: :unprocessable_entity
     end
   end

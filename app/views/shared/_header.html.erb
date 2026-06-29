@@ -1,0 +1,8 @@
+<div class="flex flex-row w-full h-[40px] border-1 rounded-lg">
+  <div class="flex size-[40px] rounded-lg">
+    <%= image_tag("header/symbol_mark.svg", size: "30", class: "m-auto justify-center") %>
+  </div>
+  <div class="ml-auto mr-[10px] self-center">
+    <%= link_to t('header.logout'), logout_path, data: { turbo_method: :post }, class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+  </div>
+</div>
