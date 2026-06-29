@@ -1,0 +1,26 @@
+<div class="flex flex-row justify-around bg-[#8bc782]">
+
+  <div class="w-[40px] h-full">
+    <%= link_to homes_path do %>
+      <%= image_tag("footer/home.svg", size: "40") %>
+    <% end %>
+    <p class="w-full h-[20px] text-center text-[14px]"><%= t("footer.home") %></p>
+  </div>
+
+  <div class="w-[40px] h-full">
+    <%= link_to mood_records_path do %>
+      <%= image_tag("footer/record.svg", size: "40") %>
+    <% end %>
+    <p class="w-full h-[20px] text-center text-[14px]"><%= t("footer.record") %></p>
+  </div>
+
+  <div class="w-[40px] h-[60px]">
+  </div>
+
+  <div class="w-[40px] h-[60px]">
+  </div>
+
+  <div class="w-[40px] h-[60px]">
+  </div>
+
+</div>

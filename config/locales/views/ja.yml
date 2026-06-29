@@ -4,10 +4,28 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  header:
+    to_login_page: ログインページ
+    logout: ログアウト
+  footer:
+    home: HOME
+    record: 記録
   users:
     new:
-      title: ユーザー登録
-      to_login_page: ログインページ
+      title: ユーザー登録 
     create:
       success: ユーザー登録が完了しました
-      failure: ユーザー登録に失敗しました
+      alert: ユーザー登録に失敗しました
+  user_sessions:
+    new:
+      title: ログイン
+      submit: ログイン
+      to_users_page: ユーザー登録ページへ
+    create:
+      success: ログインしました
+      alert: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
