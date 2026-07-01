@@ -2,9 +2,12 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      mood_record: 気分の記録
     attributes:
       user:
         name: ニックネーム
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+      mood_record:
+        record_on: 日付

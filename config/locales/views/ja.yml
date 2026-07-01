@@ -29,3 +29,16 @@ ja:
       alert: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  mood_records:
+    index:
+      new_record: 記録(新規登録)
+    new:
+      title: 記録(新規登録)
+      best: 最高
+      good: 良い
+      usually: 普通
+      bad: 悪い
+      worst: 最悪
+    create:
+      success: 記録に成功しました。
+      alert: 記録に失敗しました。
