@@ -6,10 +6,7 @@ Rails.application.routes.draw do
   # ルート
   root "homes#index"
 
-  # 実装確認用のルート
-  # root "user_sessions#new"
-
-  # ユーザー関係
+  # ユーザー登録＆ログイン
   resources :users, only: %i[new create]
   get 'login' => 'user_sessions#new', as: :login
   post 'login' => "user_sessions#create"
@@ -17,5 +14,5 @@ Rails.application.routes.draw do
 
   # 機能関係
   resources :homes, only: %i[index]
-  resources :mood_records
+  resources :mood_records, only: %i[new create edit update destroy]
 end

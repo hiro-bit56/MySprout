@@ -10,9 +10,8 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_back_or_to(homes_path, success: t('user_sessions.create.success'))
     else
-      flash.now[:alert] = t('user_sessions.create.success')
-
-      render action: 'new', status: :unprocessable_entity
+      flash.now[:alert] = t('user_sessions.create.alert')
+      render :new, status: :unprocessable_entity
     end
   end
 
