@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
   def new; end
   
   def create
-    @user = login(params[:email], params[:password])
+    @user = login(login_params)
 
     if @user
       redirect_back_or_to(homes_path, success: t('user_sessions.create.success'))
@@ -18,5 +18,11 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     redirect_to login_path, success: t('user_sessions.destroy.success'), status: :see_other
+  end
+
+  private
+
+  def login_params
+    params.expect(:email, :password)
   end
 end

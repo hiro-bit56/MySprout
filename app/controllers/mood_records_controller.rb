@@ -1,12 +1,12 @@
 class MoodRecordsController < ApplicationController
   def new
-    @record = MoodRecord.new
+    @mood_record = MoodRecord.new
     mood_list
   end
 
   def create
-    @record = current_user.mood_records.build(record_params)
-    if @record.save
+    @mood_record = current_user.mood_records.build(record_params)
+    if @mood_record.save
       redirect_to mood_records_path, success: t('mood_records.create.success')
     else
       flash.now[:alert] = t('mood_records.create.alert')
@@ -22,7 +22,7 @@ class MoodRecordsController < ApplicationController
   end
 
   def mood_list
-    # mood_levelのbest~worstのハッシュ値を取得(「best: 0」の形で取得)
-    @mood_list = MoodRecord.mood_levels
+    # mood_levelのbest~worstの配列を取得
+    @mood_list = MoodRecord.mood_levels.keys
   end
 end
