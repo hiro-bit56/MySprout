@@ -7,6 +7,16 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    submit:
+      login: ログイン
+      search: 検索
+    mood_level:
+      best: 最高
+      good: 良い
+      usually: 普通
+      bad: 悪い
+      worst: 最悪
   header:
     to_login_page: ログインページ
     logout: ログアウト
@@ -22,23 +32,21 @@ ja:
   user_sessions:
     new:
       title: ログイン
-      submit: ログイン
       to_users_page: ユーザー登録ページへ
     create:
       success: ログインしました
       alert: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  homes:
+    index:
+      edit: 編集
+      delete: 削除
   mood_records:
     index:
       new_record: 記録(新規登録)
     new:
       title: 記録(新規登録)
-      best: 最高
-      good: 良い
-      usually: 普通
-      bad: 悪い
-      worst: 最悪
     create:
       success: 記録に成功しました。
       alert: 記録に失敗しました。

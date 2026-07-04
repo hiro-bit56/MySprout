@@ -3,17 +3,17 @@
   <div class=" border-b rounded-lg bg-[#8bc782]">
     <h1 class="text-center"><%= t('.title') %></h1>
   </div>
-  <%= form_with model: @record do |f| %>
+  <%= form_with model: @mood_record do |f| %>
     <div class="mb-3 ml-3">
       <%= f.label :record_on, class: "block mb-1" %>
       <%= f.date_field :record_on, class: "border-1 rounded-lg w-5/6" %>
     </div>
     <div class="flex flex-row justify-around mb-3 ">
-      <% @mood_list.each do |key, value| %>
+      <% @mood_list.each do |mood| %>
         <label>
-          <%= f.radio_button :mood_level, key %>
-          <%= image_tag("mood_icon/#{key}.svg",size: "40") %>
-          <p class="text-center"> <%= t(".#{key}") %> </p>
+          <%= f.radio_button :mood_level, mood %>
+          <%= image_tag("mood_icon/#{mood}.svg",size: "40") %>
+          <p class="text-center"> <%= t("defaults.mood_level.#{mood}") %> </p>
         </label>
       <% end %>
     </div>
