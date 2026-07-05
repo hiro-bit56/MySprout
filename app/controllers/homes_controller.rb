@@ -6,7 +6,6 @@ class HomesController < ApplicationController
     start_date = Date.new(@year, @month, 1)
     end_date = start_date.end_of_month
 
-
     # 気分、睡眠、エネルギーの1か月分のデータを取得
     @mood_record = current_user.mood_records.where(record_on: start_date..end_date).order(:record_on)
 
