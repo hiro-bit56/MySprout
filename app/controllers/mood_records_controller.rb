@@ -41,9 +41,4 @@ class MoodRecordsController < ApplicationController
   def record_params
     params.require(:mood_record).permit(:record_on, :mood_level)
   end
-
-  def mood_list
-    # mood_levelのbest~worstの配列を取得
-    @mood_list = MoodRecord.mood_levels.keys
-  end
 end

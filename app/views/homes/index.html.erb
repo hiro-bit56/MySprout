@@ -1,5 +1,32 @@
-<div>
-  <h1>記録用</h1>
+<div class="w-full border-1 rounded-lg">
+  <div class="mb-3 border-b rounded-lg bg-[#8bc782]">
+    <h1 class="text-center">
+      <%= "当日の記録" %>
+    </h1>
+  </div>
+  <div>
+    <% if @today_mood %>
+      <p class="text-center text-[30px]">GOOD</p>
+    <% else %>
+      <div class="flex w-full">
+        <div class="mx-auto mb-3">
+          <h2>気分</h2>
+        </div>
+      </div>
+      <div class="flex flex-row justify-around mb-3">
+        <% @mood_list.each do |mood| %>
+          <%= form_with model: @mood_record do |f| %>
+            <%= f.hidden_field :record_on, value: Date.current %>
+            <%= f.hidden_field :mood_level, value: mood %>
+            <label>
+              <%= image_tag "mood_icon/#{mood}.svg", size: "40" %>
+              <%= f.submit t("defaults.mood_level.#{mood}") %>
+            </label>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="w-full border-1 rounded-lg bg-[#a0d8ef]/20">
   <div class="mb-3 border-b rounded-lg bg-[#8bc782]">
@@ -21,7 +48,7 @@
     <% end %>
   </div>
   <div class="w-full">
-    <% @records.each do |record| %>
+    <% @month_records.each do |record| %>
       <%= render partial: "records", locals: { record: record } %>
     <% end %>
   </div>
