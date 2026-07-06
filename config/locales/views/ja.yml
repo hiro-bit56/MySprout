@@ -17,6 +17,7 @@ ja:
       usually: 普通
       bad: 悪い
       worst: 最悪
+    delete_confirm: 削除しますか
   header:
     to_login_page: ログインページ
     logout: ログアウト
@@ -43,10 +44,15 @@ ja:
       edit: 編集
       delete: 削除
   mood_records:
-    index:
-      new_record: 記録(新規登録)
     new:
-      title: 記録(新規登録)
+      title: 新規登録
     create:
       success: 記録に成功しました。
       alert: 記録に失敗しました。
+    edit:
+      title: 編集
+    update:
+      success: 更新に成功しました。
+      alert: 更新に失敗しました。
+    destroy:
+      success: 削除に成功しました。
