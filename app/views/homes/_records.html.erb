@@ -13,7 +13,7 @@
     <div></div>
   </div>
   <div class="flex flex-col justify-between ml-auto mr-2">
-    <%= link_to t("homes.index.edit"), "#", class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
-    <%= link_to t("homes.index.delete"), "#", class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+    <%= link_to t("homes.index.edit"), edit_mood_record_path(record), class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+    <%= link_to t("homes.index.delete"), mood_record_path(record), data: {turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} , class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
   </div>
 </div>
