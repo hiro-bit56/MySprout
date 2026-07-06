@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def not_authenticated
    redirect_to login_path, alert: "Please login first", status: :see_other
   end
+
+  def mood_list
+    # mood_levelのbest~worstの配列を取得
+    @mood_list = MoodRecord.mood_levels.keys
+  end
 end
