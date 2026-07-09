@@ -17,6 +17,7 @@ ja:
       usually: 普通
       bad: 悪い
       worst: 最悪
+    login first: ログインをお願いします
     if_logged_in: ログイン済みです
     delete_confirm: 削除しますか
   header:

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   private
   def not_authenticated
-   redirect_to login_path, alert: "Please login first", status: :see_other
+   redirect_to login_path, alert: t("defaults.login first"), status: :see_other
   end
 
   # ログイン済みでユーザー登録及びログインページにアクセスした場合の処理
