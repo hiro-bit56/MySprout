@@ -4,11 +4,8 @@ class ApplicationController < ActionController::Base
 
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
-
+  
   add_flash_types :success, :alert
-
-  config.time_zone = 'Tokyo'
-
   before_action :require_login
 
   private
