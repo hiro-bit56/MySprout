@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
    redirect_to login_path, alert: "Please login first", status: :see_other
   end
 
+  # ログイン済みでユーザー登録及びログインページにアクセスした場合の処理
+  def if_logged_in
+    if logged_in?
+      redirect_to root_path, notice: t("defaults.if_logged_in")
+    end
+  end
+
   def mood_list
     # mood_levelのbest~worstの配列を取得
     @mood_list = MoodRecord.mood_levels.keys
