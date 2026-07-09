@@ -23,6 +23,8 @@ services:
     volumes:
       - .:/myapp
       - bundle_data:/usr/local/bundle
+    environment:
+      TZ: Asia/Tokyo
     ports:
       - "3000:3000"
     depends_on:
