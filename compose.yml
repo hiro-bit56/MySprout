@@ -2,6 +2,7 @@ services:
   db:
     image: postgres:16
     environment:
+      TZ: Asia/Tokyo
       POSTGRES_PASSWORD: password
       POSTGRES_DB: myapp_development
     volumes:
@@ -23,6 +24,8 @@ services:
     volumes:
       - .:/myapp
       - bundle_data:/usr/local/bundle
+    environment:
+      TZ: Asia/Tokyo
     ports:
       - "3000:3000"
     depends_on:

@@ -4,14 +4,20 @@ class ApplicationController < ActionController::Base
 
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
-
+  
   add_flash_types :success, :alert
-
   before_action :require_login
 
   private
   def not_authenticated
-   redirect_to login_path, alert: "Please login first", status: :see_other
+   redirect_to login_path, alert: t("defaults.login first"), status: :see_other
+  end
+
+  # ログイン済みでユーザー登録及びログインページにアクセスした場合の処理
+  def if_logged_in
+    if logged_in?
+      redirect_to root_path, notice: t("defaults.if_logged_in")
+    end
   end
 
   def mood_list
