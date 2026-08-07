@@ -7,16 +7,17 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+      remember: 自動ログインの有効化
   defaults:
     submit:
       login: ログイン
       search: 検索
     mood_level:
-      best: 最高
+      very_good: 最高
       good: 良い
       usually: 普通
       bad: 悪い
-      worst: 最悪
+      very_bad: 最悪
     login first: ログインをお願いします
     if_logged_in: ログイン済みです
     delete_confirm: 削除しますか
