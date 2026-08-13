@@ -12,7 +12,22 @@ Rails.application.routes.draw do
   post 'login' => "user_sessions#create"
   post 'logout' => 'user_sessions#destroy', as: :logout
 
-  # 機能関係
+  # ホーム画面
   resources :homes, only: %i[index]
+
+  # 記録画面
   resources :mood_records, only: %i[new create edit update destroy]
+
+  # 情報画面
+  resources :docs, only: %i[index] do
+    resource :manual, only: %i[show]
+  end
+
+  # API連携画面
+  resource :app_link, only: %i[show create destroy]
+
+  # APIエンドポイント
+  namespace :api do
+    resources :mood_records, only: [:create]
+  end
 end

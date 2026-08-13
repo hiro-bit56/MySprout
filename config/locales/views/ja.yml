@@ -27,6 +27,7 @@ ja:
   footer:
     home: HOME
     record: 記録
+    app_link: 連携
   users:
     new:
       title: ユーザー登録 
