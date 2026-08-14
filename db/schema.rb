@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_05_235650) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_14_065336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -24,7 +24,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_05_235650) do
     t.index ["user_id"], name: "index_mood_records_on_user_id"
   end
 
+  create_table "rating_guidelines", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "guideline_text", null: false
+    t.integer "rating_level", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id", "rating_level"], name: "index_rating_guidelines_on_user_id_and_rating_level", unique: true
+    t.index ["user_id"], name: "index_rating_guidelines_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "api_token_digest"
     t.datetime "created_at", null: false
     t.string "crypted_password", null: false
     t.string "email", null: false
@@ -33,9 +44,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_05_235650) do
     t.datetime "remember_me_token_expires_at"
     t.string "salt", null: false
     t.datetime "updated_at", null: false
+    t.index ["api_token_digest"], name: "index_users_on_api_token_digest", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end
 
   add_foreign_key "mood_records", "users"
+  add_foreign_key "rating_guidelines", "users"
 end

@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   def mood_list
-    # mood_levelのbest~worstの配列を取得
+    # mood_levelのvery_good~very_badの配列を取得
     @mood_list = MoodRecord.mood_levels.keys
   end
+
 end

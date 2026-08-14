@@ -1,0 +1,15 @@
+<div data-controller="token">
+  <div data-token-target="modal" class="hidden">
+    <div class="z-1 fixed top-0 left-0 w-full h-full bg-black/60">
+      <div class="z-2 fixed top-[50%] left-[50%] transform-[translate(-50%,-50%)] w-3/4 h-30 bg-white inline-block">
+        <button data-action="click->token#close" class="z-3 w-[25px] h-[25px] transform-[translate(50%,-50%)] ml-auto rounded-[50%] border-1 bg-white">
+          <span class="text-[30px] leading-[30px]">×</span>
+        </button>
+        <p data-token-target="token">トークン</p>
+        <p data-token-target="message">メッセージ</p>
+      </div>
+    </div>
+  </div>
+
+  <button data-action="click->token#open">トークン発行</button>
+</div>

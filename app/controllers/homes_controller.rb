@@ -1,11 +1,14 @@
 class HomesController < ApplicationController
   def index
-    # ここから、当日の記録機能用
+    # ここから、当日の記録機能
     @mood_record = MoodRecord.new
     mood_list
     @today_mood = current_user.mood_records.find_by(record_on: Date.current)
 
-    # ここから、記録の閲覧機能用
+    # ここから、評価の目安機能
+    @rating_guidelines = current_user.rating_guidelines
+
+    # ここから、記録の閲覧機能
     # 検索範囲の設定
     @year = year_params || Date.current.year
     @month = month_params || Date.current.month

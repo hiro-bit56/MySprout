@@ -1,0 +1,28 @@
+<div class="w-full border-1 rounded-lg mb-3">
+  <div class="mb-3 border-b rounded-lg bg-[#8bc782]">
+    <h1 class="text-center">
+      <%= "評価の目安" %>
+    </h1>
+  </div>
+  <div class="w-full" data-controller="guideline">
+    <div class="hidden flex flex-col w-full" data-guideline-target="text">
+      <% @rating_guidelines.each do |data| %>
+        <div class="flex w-19/20 border-1 rounded-lg mx-auto mb-3">
+          <div class="flex w-[25px] px-1 border-r rounded-lg bg-[#8bc782]">
+            <p class="my-auto"><%= t("defaults.mood_level.#{data.rating_level}") %></p>
+          </div>
+          <div class="px-1">
+            <%= simple_format(data.guideline_text) %>
+          </div>
+        </div>
+      <% end %>
+      <p class="w-19/20 mx-auto">
+        ※あくまで参考です。<br>
+        　自身の評価基準で自由に記録してください。
+      </p>
+    </div>
+    <div class="flex mb-1 border-t rounded-lg">
+      <%= button_tag "▼", type: "button", class: "w-full", data: { guideline_target: "button", action: "click->guideline#switch" }%>
+    </div>
+  </div>
+</div>
