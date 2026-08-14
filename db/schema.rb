@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_11_231922) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_14_065336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_11_231922) do
     t.bigint "user_id", null: false
     t.index ["user_id", "record_on"], name: "index_mood_records_on_user_id_and_record_on", unique: true
     t.index ["user_id"], name: "index_mood_records_on_user_id"
+  end
+
+  create_table "rating_guidelines", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "guideline_text", null: false
+    t.integer "rating_level", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id", "rating_level"], name: "index_rating_guidelines_on_user_id_and_rating_level", unique: true
+    t.index ["user_id"], name: "index_rating_guidelines_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +50,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_11_231922) do
   end
 
   add_foreign_key "mood_records", "users"
+  add_foreign_key "rating_guidelines", "users"
 end

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="token"
 export default class extends Controller {
-  static targets = ["modal", "token", "message"]
+  static targets = ["modal", "token", "message"];
   
   async open() {
     const target_token = this.tokenTarget;

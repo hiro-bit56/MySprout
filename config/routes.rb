@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # ホーム画面
   resources :homes, only: %i[index]
+    resource :rating_guideline, only: %i[edit update]
 
   # 記録画面
   resources :mood_records, only: %i[new create edit update destroy]
