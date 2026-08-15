@@ -10,7 +10,7 @@ class AppLinksController < ApplicationController
     # 一度だけ表示（この後は見られない）
     render json: { 
       api_token: token,
-      message: 'このトークンは一度しか表示されません。安全な場所に保存してください。'
+      message: "トークンが知られると大変危険です。\n安全な場所に保管ください。"
     }
   end
   
