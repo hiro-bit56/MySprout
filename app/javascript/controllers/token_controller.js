@@ -2,10 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="token"
 export default class extends Controller {
-  static targets = ["modal", "token", "message"];
+  static targets = ["modal", "message", "copy_btn"];
   
   async open() {
-    const target_token = this.tokenTarget;
+    const target_copy_btn = this.copy_btnTarget;
     const target_message = this.messageTarget;
     // CSRFトークンの取得
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
@@ -20,7 +20,7 @@ export default class extends Controller {
       });
       if (!response.ok) throw new Error('通信エラー');
       const data = await response.json(); // コントローラから返ってきたJSON
-      target_token.textContent = data.api_token;
+      target_copy_btn.value = data.api_token;
       target_message.textContent = data.message;
       
     } catch (error) {
@@ -38,4 +38,16 @@ export default class extends Controller {
     target_modal.classList.remove("block");
   }
 
+  async copy() {
+    const target_copy_btn = this.copy_btnTarget;
+    
+    try {
+      // クリップボードへのコピー
+      await navigator.clipboard.writeText(target_copy_btn.value);
+      // コピーしたことの表示
+      alert('コピーしました');
+    } catch (err) {
+      alert('コピーに失敗しました');
+    }
+  }
 }

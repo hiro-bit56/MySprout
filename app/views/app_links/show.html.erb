@@ -1,15 +1,18 @@
 <div data-controller="token">
-  <div data-token-target="modal" class="hidden">
-    <div class="z-1 fixed top-0 left-0 w-full h-full bg-black/60">
-      <div class="z-2 fixed top-[50%] left-[50%] transform-[translate(-50%,-50%)] w-3/4 h-30 bg-white inline-block">
-        <button data-action="click->token#close" class="z-3 w-[25px] h-[25px] transform-[translate(50%,-50%)] ml-auto rounded-[50%] border-1 bg-white">
-          <span class="text-[30px] leading-[30px]">×</span>
-        </button>
-        <p data-token-target="token">トークン</p>
-        <p data-token-target="message">メッセージ</p>
+  <div data-token-target="modal" class="hidden relative">
+    <div class="z-1 fixed flex top-0 left-auto right-auto w-full h-full max-w-md bg-black/60">
+      <div class="z-2 flex mx-auto my-auto rounded-lg w-7/8 p-3 bg-white inline-block">
+        <div class="flex mb-1 border rounded-lg">
+          <%= button_tag "トークンコピー", type: "button", class: "w-full", data: { token_target: "copy_btn", action: "click->token#copy" }%>
+        </div>
+        <p class="whitespace-pre-line" data-token-target="message">メッセージ</p>
+
+        <div class="flex mb-1 border rounded-lg">
+          <%= button_tag "CLOSE", type: "button", class: "w-full", data: { action: "click->token#close" }%>
+        </div>
+
       </div>
     </div>
   </div>
-
   <button data-action="click->token#open">トークン発行</button>
 </div>
