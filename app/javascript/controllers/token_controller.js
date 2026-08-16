@@ -42,7 +42,7 @@ export default class extends Controller {
 
   // 外部アプリのエクスポート用cURLをクリップボードへコピー
   async urlCopy() {
-    const curl = "curl https://mysprout.onrender.com/api/mood_records -X POST -H 'Authorization: Bearer  YOUR_TOKEN' -H 'Content-Type: application/json' -d '{\"mood_level\": \"tmp\"}'";
+    const curl = "curl https://mysprout.onrender.com/api/mood_records -X POST -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' -d '{\"mood_level\": \"tmp\"}'";
     // const curl = 'curl https://mysprout.onrender.com/api/mood_records -X POST -H "Authorization: Bearer  YOUR_TOKEN" -H "Content-Type: application/json" -d "{\"mood_level\": \"tmp\"}"';
 
     try {
