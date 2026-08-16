@@ -4,8 +4,8 @@
       <%= "評価の目安" %>
     </h1>
   </div>
-  <div class="w-full" data-controller="guideline">
-    <div class="hidden flex flex-col w-full" data-guideline-target="text">
+  <div class="w-full" data-controller="switchdisplay">
+    <div id="guideline-text" class="hidden flex flex-col w-full">
       <% @rating_guidelines.each do |data| %>
         <div class="flex w-19/20 border-1 rounded-lg mx-auto mb-3">
           <div class="flex w-[25px] px-1 border-r rounded-lg bg-[#8bc782]">
@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="flex mb-1 border-t rounded-lg">
-      <%= button_tag "▼", type: "button", class: "w-full", data: { guideline_target: "button", action: "click->guideline#switch" }%>
+      <%= button_tag "▼", type: "button", id: "guideline", class: "w-full", data: { action: "click->switchdisplay#switch" }%>
     </div>
   </div>
 </div>
