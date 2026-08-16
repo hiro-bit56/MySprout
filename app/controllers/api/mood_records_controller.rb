@@ -6,6 +6,8 @@ class Api::MoodRecordsController < ApplicationController
 
   def create
     mood = @current_user.mood_records.build(mood_params)
+    today = Date.current
+    mood.record_on = today
     if mood.save
       render json: { message: "記録しました" }, status: :created
     else
@@ -33,6 +35,6 @@ class Api::MoodRecordsController < ApplicationController
   end
 
   def mood_params
-    params.require(:mood_records).permit(:record_on, :mood_level)
+    params.permit(:mood_level)
   end
 end
