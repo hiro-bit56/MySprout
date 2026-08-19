@@ -20,9 +20,8 @@ Rails.application.routes.draw do
   resources :mood_records, only: %i[new create edit update destroy]
 
   # 情報画面
-  resources :docs, only: %i[index] do
-    resource :manual, only: %i[show]
-  end
+  get 'list' => 'supports#list'
+  get 'manual' => 'supports#manual'
 
   # API連携画面
   resource :app_link, only: %i[show create destroy]
