@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get "list" => "static_pages#list"
     get "howto" => "static_pages#howto"
     get "terms" => "static_pages#terms"
+    get "policy" => "static_pages#policy"
     resource :feed_backs, only: %i[new create]
   end
 
