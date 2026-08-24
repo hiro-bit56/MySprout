@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :mood_records, dependent: :destroy
   has_many :rating_guidelines, dependent: :destroy
+  has_many :feed_backs, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true

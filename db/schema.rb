@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_14_065336) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_20_113142) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "feed_backs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "q1", null: false
+    t.text "q2"
+    t.text "q3"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_feed_backs_on_user_id"
+  end
 
   create_table "mood_records", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,6 +59,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_14_065336) do
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end
 
+  add_foreign_key "feed_backs", "users"
   add_foreign_key "mood_records", "users"
   add_foreign_key "rating_guidelines", "users"
 end

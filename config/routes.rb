@@ -19,9 +19,14 @@ Rails.application.routes.draw do
   # 記録画面
   resources :mood_records, only: %i[new create edit update destroy]
 
-  # 情報画面
-  get 'list' => 'supports#list'
-  get 'manual' => 'supports#manual'
+  # ヘルプ画面
+  namespace :support do
+    get "list" => "static_pages#list"
+    get "howto" => "static_pages#howto"
+    get "terms" => "static_pages#terms"
+    resource :feed_backs, only: %i[new create]
+  end
+
 
   # API連携画面
   resource :app_link, only: %i[show create destroy]
