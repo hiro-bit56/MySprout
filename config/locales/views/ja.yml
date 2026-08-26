@@ -28,6 +28,7 @@ ja:
     home: HOME
     record: 記録
     app_link: 連携
+    support: ヘルプ
   users:
     new:
       title: ユーザー登録 
@@ -60,3 +61,11 @@ ja:
       alert: 更新に失敗しました。
     destroy:
       success: 削除に成功しました。
+  feed_backs:
+    new:
+      agree: そう思う
+      maybe: どちらともいえない
+      disagree: 思わない
+    create:
+      success: アンケートを送信しました。
+      alert: アンケートの送信に失敗しました。

@@ -1,0 +1,56 @@
+<div class="w-full">
+  <div class="pl-5 mb-3 bg-[#8bc782]">
+    <h1 class="text-[25px]"><strong>アンケート</strong></h1>
+  </div>
+
+  <div class="flex mb-3 bg-[#8bc782]/50">
+    <h2 class="mx-auto text-[20px]"><strong>初めに</strong></h2>
+  </div>
+  <div class="w-[300px] mx-auto">
+    <%= tag.p class: "mb-3 text-[18px]" do %>
+      <strong>本アンケートについて</strong><br>
+      　無理の無い範囲でご回答ください。<br>
+      　Q1は、必須回答になります。<br>
+      　その他は任意回答です。
+    <% end %>
+  </div>
+
+  <div class="flex mb-3 bg-[#8bc782]/50">
+    <h2 class="mx-auto text-[20px]"><strong>質問</strong></h2>
+  </div>
+  <div class="w-[300px] mx-auto text-[18px]">
+  <%= form_with model: @feed_back, url: support_feed_backs_path do |f| %>
+    <div class="mb-2">
+      <%= tag.p do %>
+        Q1：本アプリで記録を続けられますか
+      <% end %>
+      <% @q1_choices.each do |choice| %>
+        <div class="block ml-5">
+          <%= f.radio_button :q1, choice %>
+          <%= f.label :q1, t("feed_backs.new.#{choice}") %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class=" flex flex-col w-full mb-3 h-[200px]">
+      <%= tag.p do %>
+        Q2：Q1の回答理由を教えてください
+        　例)入力が簡単、〇〇機能が欲しい
+      <% end %>
+      <%= f.text_area :q2 ,class: "border w-full flex-1 resize-none p-2" %>
+    </div>
+
+    <div class=" flex flex-col w-full mb-3 h-[200px]">
+      <%= tag.p do %>
+        Q3：ご意見・ご感想をお書きください
+      <% end %>
+      <%= f.text_area :q2 ,class: "border w-full flex-1 resize-none p-2" %>
+    </div>
+
+    <div class="mb-3 text-right mr-5">
+      <%= f.submit class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+    </div>
+  <% end %>
+
+  </div>
+</div>
