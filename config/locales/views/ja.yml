@@ -67,5 +67,5 @@ ja:
       maybe: どちらともいえない
       disagree: 思わない
     create:
-      success: アンケートを送信しました。
+      success: 回答ありがとうございます。
       alert: アンケートの送信に失敗しました。
