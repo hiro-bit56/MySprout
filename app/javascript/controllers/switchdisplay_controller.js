@@ -11,10 +11,10 @@ export default class extends Controller {
     const textElement = document.getElementById(btnId + "-text");
     if (textElement.classList.contains('hidden')) {
       textElement.classList.replace("hidden", "block");
-      clickedElement.textContent = "▲";
+      clickedElement.textContent = "━";
     }else{
       textElement.classList.replace("block", "hidden");
-      clickedElement.textContent = "▼";
+      clickedElement.textContent = "╋";
     }
   }
 }
