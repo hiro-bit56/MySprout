@@ -2,12 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="token"
 export default class extends Controller {
-  static targets = ["modal", "message", "copy"];
+  static targets = ["issueBtn", "clearBtn"];
   
-  // モーダルの表示
-  async open() {
-    const target_copy = this.copyTarget;
-    const target_message = this.messageTarget;
+  // トークンの発行
+  async issue() {
     // CSRFトークンの取得
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 
@@ -21,30 +19,63 @@ export default class extends Controller {
       });
       if (!response.ok) throw new Error('通信エラー');
       const data = await response.json(); // コントローラから返ってきたJSON
-      target_copy.value = data.api_token;
-      target_message.textContent = data.message;
-      
+      // ボタンの有効化・無効化
+      if (data.has_token){
+        this.issueBtnTarget.disabled = true;
+        this.issueBtnTarget.classList.replace("bg-[#98d98e]/70", "bg-[#808080]/70");
+        this.issueBtnTarget.textContent = "発行済み";
+        this.clearBtnTarget.disabled = false;
+        this.clearBtnTarget.classList.replace("bg-[#808080]/70", "bg-[#98d98e]/70");
+      }
+      // トークンをクリップボードへコピー
+      if (tokenCopy(data.token)){
+        alert(data.message)
+      } else {
+        alert(
+          "クリップボードへのコピーに失敗しました。\n" +
+          "再度トークン発行をお試しください。\n" +
+          "　※「連携解除」を行う必要があります。"
+        );
+      }
     } catch (error) {
-      target_message.textContent = "発行が失敗しました";
+      console.error(error);
+      alert("発行が失敗しました");
     }
 
-    const target_modal = this.modalTarget;
-    target_modal.classList.add("block");
-    target_modal.classList.remove("hidden");
   }
 
-  // モーダルの非表示
-  close() {
-    const target_modal = this.modalTarget;
-    target_modal.classList.add("hidden");
-    target_modal.classList.remove("block");
+  async clear() {
+    // CSRFトークンの取得
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+    try {
+      const response = await fetch('/app_link', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken // Railsで必須の設定
+        },
+      });
+      if (!response.ok) throw new Error('通信エラー');
+      const data = await response.json(); // コントローラから返ってきたJSON
+      // ボタンの有効化・無効化
+      if (!data.has_token){
+        this.issueBtnTarget.disabled = false;
+        this.issueBtnTarget.classList.replace("bg-[#808080]/70", "bg-[#98d98e]/70");
+        this.issueBtnTarget.textContent = "トークン発行";
+        this.clearBtnTarget.disabled = true;
+        this.clearBtnTarget.classList.replace("bg-[#98d98e]/70", "bg-[#808080]/70");
+      }
+      alert(data.message)
+    } catch (error) {
+      alert("連携解除に失敗しました");
+    }
+
   }
 
   // 外部アプリのエクスポート用cURLをクリップボードへコピー
   async urlCopy() {
-    const curl = "curl https://mysprout.onrender.com/api/mood_records -X POST -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' -d '{\"mood_level\": \"tmp\"}'";
-    // const curl = 'curl https://mysprout.onrender.com/api/mood_records -X POST -H "Authorization: Bearer  YOUR_TOKEN" -H "Content-Type: application/json" -d "{\"mood_level\": \"tmp\"}"';
-
+    const curl = "curl https://mysprout.onrender.com/api/endpoint -X POST -H 'Authorization: Bearer YOUR_TOKEN' -H 'Content-Type: application/json' -d '{\"mood_level\": \"tmp\"}'";
     try {
       // 方法1: Clipboard API(HTTPS環境)
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -59,28 +90,24 @@ export default class extends Controller {
       alert('コピーに失敗しました');
     }
   }
-
-  // トークンをクリップボードへコピー
-  async tokenCopy() {
-    const target_copy = this.copyTarget;
-
-    try {
-      // 方法1: Clipboard API(HTTPS環境)
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(target_copy.value);
-        alert('コピーしました');
-        return;
-      }
-      // 方法2: 古い方法(HTTP環境でも動作)
-      fallbackCopyToClipboard(target_copy.value);
-      alert('コピーしました');
-    } catch (err) {
-      alert('コピーに失敗しました');
-    }
-  }
-
-
 }
+
+// トークンをクリップボードへコピー
+async function tokenCopy(token) {
+  try {
+    // 方法1: Clipboard API(HTTPS環境)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(token);
+      return true;
+    }
+    // 方法2: 古い方法(HTTP環境でも動作)
+    fallbackCopyToClipboard(token);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
 
 // 古い方法でのコピー(内容をよく理解しておく)
 function fallbackCopyToClipboard(text) {

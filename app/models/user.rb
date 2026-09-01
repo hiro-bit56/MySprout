@@ -38,9 +38,4 @@ class User < ApplicationRecord
     return false unless api_token_digest
     BCrypt::Password.new(api_token_digest) == token
   end
-  
-  # トークンの再発行
-  def regenerate_api_token
-    generate_api_token
-  end
 end

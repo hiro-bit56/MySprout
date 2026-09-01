@@ -1,18 +1,4 @@
 <div data-controller="token switchdisplay">
-  <div data-token-target="modal" class="hidden relative">
-    <div class="z-1 fixed flex top-0 left-auto right-auto w-full h-full max-w-md bg-black/60">
-      <div class="z-2 flex mx-auto my-auto rounded-lg w-7/8 p-3 bg-white inline-block">
-        <div class="flex mb-1 border rounded-lg bg-[#98d98e]/70">
-          <%= button_tag "トークンコピー", type: "button", class: "w-full", data: { token_target: "copy", action: "click->token#tokenCopy" }%>
-        </div>
-        <p class="whitespace-pre-line" data-token-target="message">メッセージ</p>
-        <div class="flex mb-1 border rounded-lg bg-[#98d98e]/70">
-          <%= button_tag "CLOSE", type: "button", class: "w-full", data: { action: "click->token#close" }%>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="flex ml-1 pl-1 mb-5 border-l-5 border-[#98d98e]/70">
     <h2 class="text-[20px]"><strong>外部アプリ連携</strong></h2>
   </div>
@@ -48,8 +34,23 @@
   <div class="w-3/4 mb-3 mx-auto border rounded-lg bg-[#98d98e]/70">
     <%= button_tag "cURLコマンドコピー", type: "button", class: "w-full", data: { action: "click->token#urlCopy" }%>
   </div>
-  <div class="w-3/4 mb-5 mx-auto border rounded-lg bg-[#98d98e]/70">
-    <%= button_tag "トークン発行", type: "button", class: "w-full", data: { action: "click->token#open" }%>
+
+  <div id="app_link_btn">
+    <% if @has_token %>
+      <div class="w-3/4 mb-3 mx-auto border rounded-lg">
+        <%= button_tag "発行済み", type: "button", class: "w-full bg-[#808080]/70", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: true %>
+      </div>
+      <div class="w-3/4 mb-3 mx-auto border rounded-lg">
+        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#98d98e]/70", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: false %>
+      </div>
+    <% else %>
+      <div class="w-3/4 mb-3 mx-auto border rounded-lg">
+        <%= button_tag "トークン発行", type: "button", class: "w-full bg-[#98d98e]/70", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: false %>
+      </div>
+      <div class="w-3/4 mb-3 mx-auto border rounded-lg">
+        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#808080]/70", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: true %>
+      </div>
+    <% end %>
   </div>
 
   <div class="flex ml-1 pl-1 mb-5 border-l-5 border-[#98d98e]/70">
@@ -74,8 +75,7 @@
       ■トークンの取得方法<br>
       　①本ページの「連携用データ」へ<br>
       　②「トークン発行」をタップ<br>
-      　③「トークンコピー」をタップ<br>
-      　(クリップボードにコピーされます)
+      　(トークンがクリップボードにコピー)
     <% end %>
 
     <div class="flex mb-1 border-b">
@@ -184,7 +184,7 @@
       5. URLの設定<br>
       <%= image_tag("support/iPhone1.svg", class: "w-full" ) %>
       　上記のURLの部分を下記に変更<br>
-      <span class="text-[13px]">https://mysprout.onrender.com/api/mood_records<br></span>
+      <span class="text-[13px]">https://mysprout.onrender.com/api/endpoint<br></span>
       6. 方法を「POST」に変更<br>
       7. ヘッダの設定<br>
       　①「ヘッダ」<br>
@@ -205,8 +205,7 @@
       ■トークンの取得方法<br>
       　①本ページの「連携用データ」へ<br>
       　②「トークン発行」をタップ<br>
-      　③「トークンコピー」をタップ<br>
-      　(クリップボードにコピーされます)
+      　(トークンがクリップボードにコピー)
     <% end %>
 
     <div class="flex mb-1 border-b">

@@ -1,15 +1,15 @@
 class AppLinksController < ApplicationController
   def show
-    
+    @has_token = current_user.api_token_digest.present? # userがトークンを発行しているか
   end
 
   def create
-    # トークンを生成（平文のトークンが返される）
-    token = current_user.generate_api_token
-    
-    # 一度だけ表示（この後は見られない）
+    token = current_user.generate_api_token # トークン生成（生のトークンが返される）
+    has_token = current_user.api_token_digest.present? # userがトークンを発行しているか
+
     render json: { 
-      api_token: token,
+      token: token,
+      has_token: has_token,
       message: "トークンはユーザーの証明書です。\n情報が漏れない様に注意してください。"
     }
   end
@@ -17,6 +17,11 @@ class AppLinksController < ApplicationController
   def destroy
     # トークンを無効化
     current_user.update(api_token_digest: nil)
-    render json: { message: 'トークンを無効化しました' }
+    has_token = current_user.api_token_digest.present? # userがトークンを発行しているか
+
+    render json: { 
+      has_token: has_token,
+      message: "連携を解除しました"
+    }
   end
 end

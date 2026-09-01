@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   # APIエンドポイント
   namespace :api do
-    resources :mood_records, only: [:create]
+    post "endpoint" => "mood_records#endpoint"
+    resources :mood_records, only: %i[create update]
   end
 end
