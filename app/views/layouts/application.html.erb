@@ -25,7 +25,7 @@
 
   <body>
     <div class="flex flex-col w-screen h-dvh max-w-md mx-auto">
-      <header class='w-full h-[64px]'>
+      <header class='w-full h-[40px] bg-[#98d98e]/30'>
         <% if logged_in? %>
           <%= render "shared/header" %>
         <% else %>
@@ -33,12 +33,12 @@
         <% end %>
       </header>
 
-      <main class="w-full flex-1 overflow-auto">
+      <main class="w-full flex-1 overflow-auto my-2">
         <%= render "shared/flash_message" %>
         <%= yield %>
       </main>
 
-      <footer class="w-full h-[64px] bg-[#8bc782]">
+      <footer class="w-full h-[60px]">
         <% if logged_in? %>
           <%= render "shared/footer" %>
         <% else %>
