@@ -9,13 +9,25 @@
   </div>
 
   <div class="flex mb-3 bg-[#8bc782]/50">
-    <h2 class="mx-auto text-[20px]"><strong>第1条(取得方法＆取得情報)</strong></h2>
+    <h2 class="mx-auto text-[20px]"><strong>第1条(取得する情報)</strong></h2>
   </div>
   <div class="w-[300px] mx-auto">
     <%= tag.p class: "mb-3 text-[18px]" do %>
-      ユーザー登録時入力データを取得<br>
+      本サービス提供のため、<br>
+      以下の情報を取得いたします。<br>
+      <br>
+      ユーザー登録時に入力いただく情報<br>
+      　・ニックネーム<br>
       　・メールアドレス<br>
-      　・パスワード
+      　・暗号化したパスワード<br>
+      本サービスの利用、改善のための情報<br>
+      　・記録した日付<br>
+      　・記録した気分の評価<br>
+      　・記録を行った時刻<br>
+      　・暗号化したAPIトークン<br>
+      　　(外部アプリ連携用のもの)<br>
+      ユーザーから提供いただく情報<br>
+      　・アンケートの回答
     <% end %>
   </div>
 
@@ -25,9 +37,11 @@
   <div class="w-[300px] mx-auto">
     <%= tag.p class: "mb-3 text-[18px]" do %>
       ・本サービスの提供・運営のため<br>
-      ・お問い合わせへの対応<br>
+      ・本サービスの利用状況の把握のため<br>
+      ・本サービスの改善のため<br>
       ・不正利用防止および利用制限のため<br>
       ・登録情報の閲覧・変更・削除のため<br>
+      ・お問い合わせへの回答のため<br>
       ・上記目的に付随する目的<br>
     <% end %>
   </div>
@@ -52,7 +66,34 @@
   </div>
 
   <div class="flex mb-3 bg-[#8bc782]/50">
-    <h2 class="mx-auto text-[20px]"><strong>第5条(本ポリシーの変更)</strong></h2>
+    <h2 class="mx-auto text-[20px]"><strong>第5条(個人情報の開示)</strong></h2>
+  </div>
+  <div class="w-[300px] mx-auto">
+    <%= tag.p class: "mb-3 text-[18px]" do %>
+      本人から個人情報の開示を求められた場合には、 本人確認の上、対応いたします。
+    <% end %>
+  </div>
+
+  <div class="flex mb-3 bg-[#8bc782]/50">
+    <h2 class="mx-auto text-[20px]"><strong>第6条(訂正および削除)</strong></h2>
+  </div>
+  <div class="w-[300px] mx-auto">
+    <%= tag.p class: "mb-3 text-[18px]" do %>
+      ユーザーは、自己の個人情報が誤っている場合、 メール(お問い合わせに記載)で訂正・削除を依頼できます。
+    <% end %>
+  </div>
+
+  <div class="flex mb-3 bg-[#8bc782]/50">
+    <h2 class="mx-auto text-[20px]"><strong>第7条(利用停止など)</strong></h2>
+  </div>
+  <div class="w-[300px] mx-auto">
+    <%= tag.p class: "mb-3 text-[18px]" do %>
+      利用目的外での取扱いや不正取得が判明した場合、 開発者は調査の上、必要に応じて利用停止等を行います。
+    <% end %>
+  </div>
+
+  <div class="flex mb-3 bg-[#8bc782]/50">
+    <h2 class="mx-auto text-[20px]"><strong>第8条(本ポリシーの変更)</strong></h2>
   </div>
   <div class="w-[300px] mx-auto">
     <%= tag.p class: "mb-3 text-[18px]" do %>
@@ -62,7 +103,7 @@
   </div>
 
   <div class="flex mb-3 bg-[#8bc782]/50">
-    <h2 class="mx-auto text-[20px]"><strong>第6条(お問い合わせ)</strong></h2>
+    <h2 class="mx-auto text-[20px]"><strong>第9条(お問い合わせ)</strong></h2>
   </div>
   <div class="w-[300px] mx-auto">
     <%= tag.p class: "mb-3 text-[18px]" do %>
