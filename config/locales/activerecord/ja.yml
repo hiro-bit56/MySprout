@@ -7,7 +7,7 @@ ja:
       user:
         name: ニックネーム
         email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード確認
+        password: パスワード(6文字以上)
+        password_confirmation: パスワード確認(6文字以上)
       mood_record:
         record_on: 日付

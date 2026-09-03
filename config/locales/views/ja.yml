@@ -1,9 +1,9 @@
 ja:
   helpers:
     submit:
-      create: 登録
-      submit: 保存
-      update: 更新
+      create: 登録する
+      submit: 保存する
+      update: 更新する
     label:
       email: メールアドレス
       password: パスワード
@@ -24,7 +24,7 @@ ja:
     if_logged_in: ログイン済みです
     delete_confirm: 削除しますか
   header:
-    to_login_page: ログインページ
+    to_login_page: ログイン
     logout: ログアウト
   footer:
     home: ホーム

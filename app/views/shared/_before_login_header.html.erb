@@ -2,7 +2,10 @@
   <div class="flex size-[40px] rounded-lg">
     <%= image_tag("header/symbol_mark.svg", size: "30", class: "m-auto justify-center") %>
   </div>
+  <div class="flex h-[40px]">
+    <p class="my-auto">MySprout</p>
+  </div>
   <div class="ml-auto mr-[10px] self-center">
-    <%= link_to t('header.to_login_page'), login_path, class: "bg-[#98d98e]/70 px-1 border-1 rounded-lg" %>
+    <%= link_to t('header.to_login_page'), login_path %>
   </div>
 </div>
