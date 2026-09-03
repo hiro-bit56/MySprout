@@ -12,6 +12,8 @@ ja:
     submit:
       login: ログイン
       search: 検索
+      record_create: 記録する
+      record_update: 上書き
     mood_level:
       very_good: 最高
       good: 良い
@@ -50,15 +52,15 @@ ja:
       delete: 削除
   mood_records:
     new:
-      title: 新規登録
+      title: 記録
     create:
       success: 記録に成功しました。
       alert: 記録に失敗しました。
     edit:
-      title: 編集
+      title: 記録の編集
     update:
-      success: 更新に成功しました。
-      alert: 更新に失敗しました。
+      success: 上書きに成功しました。
+      alert: 上書きに失敗しました。
     destroy:
       success: 削除に成功しました。
   feed_backs:
