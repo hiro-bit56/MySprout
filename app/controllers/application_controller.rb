@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   
   add_flash_types :success, :alert
   before_action :require_login
+  helper_method :footer_active?
+
+  @test = controller_path
 
   private
   def not_authenticated
@@ -25,4 +28,16 @@ class ApplicationController < ActionController::Base
     @mood_list = MoodRecord.mood_levels.keys
   end
 
+  def footer_active?(section)
+    case section
+    when :home
+      controller_path == "homes"
+    when :record
+      controller_path == "mood_records"
+    when :link
+      controller_path == "app_links"
+    when :support
+      controller_path.start_with?("support/")
+    end
+  end
 end

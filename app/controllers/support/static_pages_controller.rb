@@ -1,5 +1,5 @@
 class Support::StaticPagesController < ApplicationController
-  skip_before_action :require_login, only: [:list, :howto]
+  skip_before_action :require_login, only: [:list, :howto, :terms, :policy]
 
   def list
   end

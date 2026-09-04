@@ -1,23 +1,22 @@
 <%= form_with model: @mood_record do |f| %>
-  <div class="mb-3 ml-3">
-    <%= f.label :record_on, class: "block mb-1" %>
-    <%= f.date_field :record_on, class: "border-1 rounded-lg w-5/6" %>
+  <div class="flex mb-5">
+    <%= f.date_field :record_on, class: "p-2 mx-auto rounded-lg bg-[#98d98e]/50" %>
   </div>
-  <div class="flex w-full">
+  <div class="flex w-full mb-2">
     <div class="mx-auto">
       <h2>気分</h2>
     </div>
   </div>
-  <div class="flex flex-row justify-around mb-3 ">
+  <div class="flex flex-row mb-5">
     <% @mood_list.each do |mood| %>
-      <label>
-        <%= f.radio_button :mood_level, mood %>
-        <%= image_tag("mood_icon/#{mood}.svg",size: "40") %>
+      <label class="flex-1 rounded-lg p-1 has-checked:bg-[#98d98e]/50">
+        <%= f.radio_button :mood_level, mood, class: "hidden" %>
+        <%= image_tag("mood_icon/#{mood}.svg",size: "40", class: "mx-auto") %>
         <p class="text-center"> <%= t("defaults.mood_level.#{mood}") %> </p>
       </label>
     <% end %>
   </div>
-  <div class="mb-3 text-right mr-5">
-    <%= f.submit class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+  <div class="mb-3 text-center">
+    <%= f.submit t("defaults.submit.record_create"), class: "bg-[#98d98e]/50 px-5 py-1 rounded-lg" %>
   </div>
 <% end %>

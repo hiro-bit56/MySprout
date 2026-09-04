@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     resource :feed_backs, only: %i[new create]
   end
 
-
   # API連携画面
   resource :app_link, only: %i[show create destroy]
 

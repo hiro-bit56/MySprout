@@ -31,24 +31,24 @@
   <div class="flex ml-1 pl-1 mb-5 border-l-5 border-[#98d98e]/70">
     <h2 class="text-[20px]"><strong>連携用データ</strong></h2>
   </div>
-  <div class="w-3/4 mb-3 mx-auto border rounded-lg bg-[#98d98e]/70">
+  <div class="w-3/4 mb-3 mx-auto border rounded-lg bg-[#98d98e]/50">
     <%= button_tag "cURLコマンドコピー", type: "button", class: "w-full", data: { action: "click->token#urlCopy" }%>
   </div>
 
   <div id="app_link_btn">
     <% if @has_token %>
       <div class="w-3/4 mb-3 mx-auto border rounded-lg">
-        <%= button_tag "発行済み", type: "button", class: "w-full bg-[#808080]/70", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: true %>
+        <%= button_tag "発行済み", type: "button", class: "w-full bg-[#808080]/50", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: true %>
       </div>
       <div class="w-3/4 mb-3 mx-auto border rounded-lg">
-        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#98d98e]/70", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: false %>
+        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#98d98e]/50", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: false %>
       </div>
     <% else %>
       <div class="w-3/4 mb-3 mx-auto border rounded-lg">
-        <%= button_tag "トークン発行", type: "button", class: "w-full bg-[#98d98e]/70", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: false %>
+        <%= button_tag "トークン発行", type: "button", class: "w-full bg-[#98d98e]/50", data: { token_target: "issueBtn", action: "click->token#issue" }, disabled: false %>
       </div>
       <div class="w-3/4 mb-3 mx-auto border rounded-lg">
-        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#808080]/70", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: true %>
+        <%= button_tag "連携解除", type: "button", class: "w-full bg-[#808080]/50", data: { token_target: "clearBtn", action: "click->token#clear" }, disabled: true %>
       </div>
     <% end %>
   </div>
@@ -62,51 +62,52 @@
       <%= button_tag "╋", type: "button", id: "android-1",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "android-1-text", class: "hidden mb-5" do %>
-      1. GooglePlayから下記をインストール<br>
-      　・HTTP Request Shortcuts<br>
-      2. HTTP Request Shortcutsを開く<br>
-      3. 右上の「︙」→「グローバル変数」<br>
-      4. 右下の「+」→「固定変数」<br>
-      5. 下記を入力<br>
+      1.GooglePlayから➀をインストール<br>
+      　➀HTTP Request Shortcuts<br>
+      2.HTTP Request Shortcutsを開く<br>
+      3.右上の「︙」→「グローバル変数」<br>
+      4.右下の「+」→「固定変数」<br>
+      5.下記を入力<br>
       　名前：token<br>
       　値：トークンを貼付(下記を参照)<br>
-      6. 右上の「✓」<br>
+      6.右上の「✓」<br>
       <br>
       ■トークンの取得方法<br>
-      　①本ページの「連携用データ」へ<br>
-      　②「トークン発行」をタップ<br>
-      　(トークンがクリップボードにコピー)
+      　➀本ページの「連携用データ」へ<br>
+      　➁「トークン発行」をタップ<br>
+      　　(クリップボードへコピー)
     <% end %>
 
     <div class="flex mb-1 border-b">
-      <h3><strong>Step2-ショートカット作成①</strong></h3>
+      <h3><strong>Step2-ショートカット作成➀</strong></h3>
       <%= button_tag "╋", type: "button", id: "android-2",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "android-2-text", class: "hidden mb-5" do %>
-      1. 本ページの下記をタップ<br>
+      1.本ページの下記をタップ<br>
       　cURLコマンドコピー<br>
-      2. HTTP Request Shortcutsを開く<br>
-      3. 右下の「+」→<br>
-      　「cURLコマンドからのインポート」<br>
-      4. 1でコピーしたデータを貼り付け<br>
-      5. 右上の「✓」<br>
-      6. ショートカット名に「最高」と入力<br>
-      7. リクエストヘッダーの設定<br>
-      　①「Authorization」<br>
-      　②値の「YOUR_TOKEN」を削除<br>
-      　③値の「{}」をタップ→「token」<br>
-      　※「Bearer_{token}」であればOK<br>
+      2.HTTP Request Shortcutsを開く<br>
+      3.右下の「+」→<br>
+      「cURLコマンドからのインポート」<br>
+      4.1でコピーしたデータを貼り付け<br>
+      5.右上の「✓」<br>
+      6.ショートカット名に、<br>
+      　「最高」と入力<br>
+      7.リクエストヘッダーの設定<br>
+      　➀「Authorization」<br>
+      　➁値の「YOUR_TOKEN」を削除<br>
+      　➂値の「{}」をタップ→「token」<br>
+      　※「Bearer_{token}」ならOK<br>
       　　_は半角スペース<br>
-      　④左上の「←」<br>
-      8. リクエストボディ/パラ…の設定<br>
-      　①リクエストボディの<br>
+      　➃左上の「←」<br>
+      8.リクエストボディ/パラ…の設定<br>
+      　➀リクエストボディの<br>
       　　「tmp」→「very_good」に変更<br>
-      　②左上の「←」<br>
-      9. 高度な設定<br>
-      　①タイムアウトを選択<br>
-      　②15秒に変更<br>
-      　③OKを選択<br>
-      　④左上の「←」<br>
+      　➁左上の「←」<br>
+      9.高度な設定<br>
+      　➀タイムアウトを選択<br>
+      　➁15秒に変更<br>
+      　➂.OKを選択<br>
+      　➃.左上の「←」<br>
       10.右上の✓を選択
     <% end %>
 
@@ -115,8 +116,8 @@
       <%= button_tag "╋", type: "button", id: "android-3",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "android-3-text", class: "hidden mb-5" do %>
-      1. 作成したショートカットを押下<br>
-      2. 本日の記録がされたか確認<br>
+      1.作成したショートカットを押下<br>
+      2.本日の記録がされたか確認<br>
       　(本サービスのホーム画面で確認)<br>
       ■記録がある場合<br>
       　次にお進みください。<br>
@@ -125,30 +126,32 @@
     <% end %>
 
     <div class="flex mb-1 border-b">
-      <h3><strong>Step4-ショートカット作成②</strong></h3>
+      <h3><strong>Step4-ショートカット作成➁</strong></h3>
       <%= button_tag "╋", type: "button", id: "android-4",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "android-4-text", class: "hidden mb-5" do %>
-      1. ショートカットのコピーを作成(4個)<br>
-      　コピー方法は下記参照<br>
-      2. コピーの以下の設定を変更<br>
+      1.ショートカットのコピーを作成<br>
+      　※4個作成する<br>
+      　　コピー方法は下記参照<br>
+      2.コピーの以下の設定を変更<br>
       　名前：値で記述<br>
-      　　①良い：good<br>
-      　　②普通：usually<br>
-      　　③悪い：bad<br>
-      　　④最悪：very_bad<br>
-      　例）Step2では、最高：very_good<br>
-      3. スマホのホーム画面に追加<br>
-      　①ショートカットを長押し<br>
-      　②ホーム画面に追加を選択<br>
-      　③ホーム画面に追加を選択<br>
+      　　➀良い：good<br>
+      　　➁普通：usually<br>
+      　　➂悪い：bad<br>
+      　　➃最悪：very_bad<br>
+      　例）Step2では、<br>
+      　　　　最高：very_good<br>
+      3.スマホのホーム画面に追加<br>
+      　➀ショートカットを長押し<br>
+      　➁ホーム画面に追加を選択<br>
+      　➂ホーム画面に追加を選択<br>
       <br>
       ■コピー方法<br>
-      　①ショートカットを長押し<br>
-      　②複製を選択<br>
+      　➀ショートカットを長押し<br>
+      　➁複製を選択<br>
       ■変更方法<br>
-      　①ショートカットを長押し<br>
-      　②変更を選択<br>
+      　➀ショートカットを長押し<br>
+      　➁変更を選択<br>
       ■注意事項<br>
       　トークンの再発行はNGです。<br>
       　トークン部分が再設定になります。
@@ -165,47 +168,49 @@
     </div>
     <%= tag.p id: "iPhone-0-text", class: "hidden mb-5" do %>
       設定方法は推定になります。<br>
-      実機での設定確認はしておりません。<br>
+      実機での設定確認は未検証です。<br>
       <br>
-      動作のフィードバックを募集中です。<br>
-      アンケートから投稿をお願いします。
+      フィードバックを募集中です。<br>
+      アンケートから、<br>
+      　ご投稿をお願いいたします。
     <% end %>
 
     <div class="flex mb-1 border-b">
-      <h3><strong>Step1-ショートカット作成①</strong></h3>
+      <h3><strong>Step1-ショートカット作成➀</strong></h3>
       <%= button_tag "╋", type: "button", id: "iPhone-1",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "iPhone-1-text", class: "hidden mb-5" do %>
-      1. ショートカットアプリを開く<br>
-      2. 右上の「+」<br>
-      3. 名称を「最高」に変更<br>
-      4. アクションの追加<br>
+      1.ショートカットアプリを開く<br>
+      2.右上の「+」<br>
+      3.名称を「最高」に変更<br>
+      4.アクションの追加<br>
       　「URLの内容を取得」を追加<br>
-      5. URLの設定<br>
-      <%= image_tag("support/iPhone1.svg", class: "w-full" ) %>
+      5.URLの設定<br>
+      <%= image_tag("support/iPhone1.svg", class: "w-full") %>
       　上記のURLの部分を下記に変更<br>
       <span class="text-[13px]">https://mysprout.onrender.com/api/endpoint<br></span>
-      6. 方法を「POST」に変更<br>
-      7. ヘッダの設定<br>
-      　①「ヘッダ」<br>
+      6.方法を「POST」に変更<br>
+      7.ヘッダの設定<br>
+      　➀「ヘッダ」<br>
       　　→「+新規ヘッダーを追加」<br>
-      　②下記の設定を行う<br>
+      　➁下記の設定を行う<br>
       　　キー：Authorization<br>
-      　　値：Bearer_トークン(下記を参照)<br>
+      　　値：Bearer_トークン<br>
+      　　　　(下記を参照)<br>
       　　　※_＝半角スペース<br>
-      8. 本文を要求の設定<br>
-      　①「本文要求」の右が<br>
+      8.本文を要求の設定<br>
+      　➀「本文要求」の右が<br>
       　　「JSON」であることを確認<br>
-      　②「新規フィールド追加」をタップ<br>
-      　③「テキスト」をタップ<br>
-      　④設定<br>
+      　➁「新規フィールド追加」タップ<br>
+      　➂「テキスト」タップ<br>
+      　➃設定<br>
       　　キー：mood_level<br>
       　　テキスト：very_good<br>
       <br>
       ■トークンの取得方法<br>
-      　①本ページの「連携用データ」へ<br>
-      　②「トークン発行」をタップ<br>
-      　(トークンがクリップボードにコピー)
+      　➀本ページの「連携用データ」へ<br>
+      　➁「トークン発行」をタップ<br>
+      　　(クリップボードへコピー)
     <% end %>
 
     <div class="flex mb-1 border-b">
@@ -213,8 +218,8 @@
       <%= button_tag "╋", type: "button", id: "iPhone-2",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "iPhone-2-text", class: "hidden mb-5" do %>
-      1. 作成したショートカットを作動<br>
-      2. 本日の記録がされたか確認<br>
+      1.作成したショートカットを作動<br>
+      2.本日の記録がされたか確認<br>
       　(本サービスのホーム画面で確認)<br>
       ■記録がある場合<br>
       　次にお進みください。<br>
@@ -223,19 +228,21 @@
     <% end %>
 
     <div class="flex mb-1 border-b">
-      <h3><strong>Step3-ショートカット作成②</strong></h3>
+      <h3><strong>Step3-ショートカット作成➁</strong></h3>
       <%= button_tag "╋", type: "button", id: "iPhone-3",class: "ml-auto font-[700]", data: { action: "click->switchdisplay#switch" }%>
     </div>
     <%= tag.p id: "iPhone-3-text", class: "hidden mb-5" do %>
-      1. ショートカットのコピーを作成(4個)<br>
-      2. 以下の設定を変更<br>
+      1.ショートカットのコピーを作成<br>
+      　※4個作成する<br>
+      2.以下の設定を変更<br>
       　名称：テキストで記述<br>
-      　　①良い：good<br>
-      　　②普通：usually<br>
-      　　③悪い：bad<br>
-      　　④最悪：very_bad<br>
-      　例）Step1では、最高：very_good<br>
-      3. ホーム画面に追加<br>
+      　　➀良い：good<br>
+      　　➁普通：usually<br>
+      　　➂悪い：bad<br>
+      　　➃最悪：very_bad<br>
+      　例）Step1では、<br>
+      　　　　最高：very_good<br>
+      3.ホーム画面に追加<br>
       　ショートカットを追加します。<br>
       <br>
       ■注意事項<br>

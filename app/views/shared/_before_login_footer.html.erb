@@ -1,20 +1,20 @@
-<div class="flex flex-row justify-around bg-[#8bc782]">
+<div class="flex flex-row">
 
-  <div class="w-[40px] h-full">
+  <div class="flex-1 w-[40px] h-full">
   </div>
 
-  <div class="w-[40px] h-full">
+  <div class="flex-1 w-[40px] h-full">
   </div>
 
-  <div class="w-[40px] h-[60px]">
+  <div class="flex-1 w-[40px] h-[60px]">
   </div>
 
-  <div class="w-[40px] h-[60px]">
+  <div class="flex-1 w-[40px] h-[60px]">
   </div>
 
-  <div class="w-[40px] h-[60px]">
+  <div class="flex-1 w-[40px] h-[60px] <%= footer_active?(:support) ? "bg-[#98d98e]/70" : "bg-[#808080]/20" %>">
     <%= link_to support_list_path do %>
-      <%= image_tag("footer/support.svg", size: "40") %>
+      <%= image_tag("footer/support.svg", size: "40",class: "mx-auto") %>
     <% end %>
     <p class="w-full h-[20px] text-center text-[14px]"><%= t("footer.support") %></p>
   </div>

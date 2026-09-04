@@ -1,17 +1,19 @@
 ja:
   helpers:
     submit:
-      create: 登録
-      submit: 保存
-      update: 更新
+      create: 登録する
+      submit: 保存する
+      update: 更新する
     label:
       email: メールアドレス
       password: パスワード
-      remember: 自動ログインの有効化
+      remember: 次回から自動ログイン
   defaults:
     submit:
       login: ログイン
       search: 検索
+      record_create: 記録する
+      record_update: 上書き
     mood_level:
       very_good: 最高
       good: 良い
@@ -22,7 +24,7 @@ ja:
     if_logged_in: ログイン済みです
     delete_confirm: 削除しますか
   header:
-    to_login_page: ログインページ
+    to_login_page: ログイン
     logout: ログアウト
   footer:
     home: ホーム
@@ -38,7 +40,6 @@ ja:
   user_sessions:
     new:
       title: ログイン
-      to_users_page: ユーザー登録ページへ
     create:
       success: ログインしました
       alert: ログインに失敗しました
@@ -50,15 +51,15 @@ ja:
       delete: 削除
   mood_records:
     new:
-      title: 新規登録
+      title: 記録
     create:
       success: 記録に成功しました。
       alert: 記録に失敗しました。
     edit:
-      title: 編集
+      title: 記録の編集
     update:
-      success: 更新に成功しました。
-      alert: 更新に失敗しました。
+      success: 上書きに成功しました。
+      alert: 上書きに失敗しました。
     destroy:
       success: 削除に成功しました。
   feed_backs:

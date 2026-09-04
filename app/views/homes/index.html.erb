@@ -1,18 +1,18 @@
-<div class="w-full border-1 rounded-lg mb-3">
-  <div class="mb-3 border-b rounded-lg bg-[#8bc782]">
-    <h1 class="text-center">
-      <%= "当日の記録" %>
+<div class="w-full mb-5 py-5 rounded-lg bg-[#ffffff]">
+  <div class="mb-5">
+    <h1 class="text-center text-[20px]">
+      今日の気分
     </h1>
   </div>
   <div>
     <% if @today_mood %>
-      <p class="text-center text-[30px]">GOOD</p>
-    <% else %>
-      <div class="flex w-full">
-        <div class="mx-auto mb-3">
-          <h2>気分</h2>
+      <div class="flex">
+        <div class="flex flex-row mx-auto">
+          <%= image_tag("mood_icon/#{@today_mood.mood_level}.svg", size: "30") %>
+          <p class="text-[30px]"><%= t("defaults.mood_level.#{@today_mood.mood_level}") %></p>
         </div>
       </div>
+    <% else %>
       <div class="flex flex-row justify-around mb-3">
         <% @mood_list.each do |mood| %>
           <%= form_with model: @mood_record do |f| %>
@@ -29,24 +29,25 @@
   </div>
 </div>
 
-<%= render "rating_guideline/rating_guideline" %>
+<%# 未完成の機能なので非表示 %>
+<%# render "rating_guideline/rating_guideline" %>
 
-<div class="w-full border-1 rounded-lg bg-[#a0d8ef]/20">
-  <div class="mb-3 border-b rounded-lg bg-[#8bc782]">
-    <h1 class="text-center">
+<div class="w-full py-2 rounded-lg bg-[#ffffff]">
+  <div class="mb-3">
+    <h1 class="text-center text-[20px]">
       <%= "#{@year}年#{@month}月の記録" %>
     </h1>
   </div>
   <div class="w-full mb-3">
     <%= form_with url: homes_path, method: :get do |f| %>
-      <div class="flex w-[200px] justify-between mx-auto">
-        <div class="border-1 rounded-lg">
+      <div class="flex w-[230px] justify-between mx-auto">
+        <div class="rounded-lg px-2 bg-[#808080]/20">
           <%= select_year(Date.current, start_year: Date.current.year, end_year: Date.current.year-5 ) %>
         </div>
-        <div class="border-1 rounded-lg">
+        <div class="rounded-lg px-2 bg-[#808080]/20">
           <%= select_month(Date.current) %>
         </div>
-        <%= f.submit t("defaults.submit.search"), class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+        <%= f.submit t("defaults.submit.search"), class: "bg-[#98d98e]/50 px-2 rounded-lg" %>
       </div>
     <% end %>
   </div>
