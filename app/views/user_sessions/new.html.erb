@@ -1,26 +1,30 @@
 <% content_for(:title, t('.title')) %>
-<div class="w-full mx-auto border-1 rounded-lg">
-  <div class=" border-b rounded-lg bg-[#8bc782]">
-    <h1 class="text-center"><%= t('.title') %></h1>
+<div class="w-full mb-5 py-3 rounded-lg bg-[#ffffff]">
+  <div class="mb-5">
+    <h1 class="text-center text-[20px]"><%= t('.title') %></h1>
   </div>
   <%= form_with url: login_path, method: :post do |f| %>
-    <div class="mb-3 ml-3">
-      <%= f.label :email, class: "block mb-1" %>
-      <%= f.email_field :email, class: "px-2 border-1 rounded-lg w-5/6" %>
-    </div>
-    <div class="mb-3 ml-3">
-      <%= f.label :password, class: "block mb-1" %>
-      <%= f.password_field :password, class: "px-2 border-1 rounded-lg w-5/6" %>
-    </div>
-    <div class="mb-3 ml-3">
-      <%= f.checkbox :remember %>
-      <%= f.label :remember %>
-    </div>
-    <div class="mb-3 text-right mr-5">
-      <%= f.submit t("defaults.submit.login"), class: "bg-[#A7A7A7]/50 px-1 border-1 rounded-lg" %>
+    <div class="flex flex-col">
+      <div class="mb-3 mx-auto w-9/10">
+        <%= f.label :email, class: "mb-1" %>
+        <%= f.email_field :email, class: "px-2 border-1 rounded-lg w-full bg-[#98d98e]/20" %>
+      </div>
+      <div class="mb-3 mx-auto w-9/10">
+        <%= f.label :password, class: "mb-1" %>
+        <%= f.password_field :password, class: "px-2 border-1 rounded-lg w-full bg-[#98d98e]/20" %>
+      </div>
+      <div class="mb-3 mx-auto w-9/10">
+        <%= f.checkbox :remember %>
+        <%= f.label :remember %>
+      </div>
+      <div class="my-3 text-center">
+        <%= f.submit t("defaults.submit.login"), class: "bg-[#98d98e]/50 px-5 py-1 rounded-lg" %>
+      </div>
     </div>
   <% end %>
 </div>
-<div class="flex">
-  <%= link_to t(".to_users_page"), new_user_path, class: "m-auto text-sky-400 underline decoration-sky-400" %>
-</div>
+  <div class="flex flex-col my-3">
+    <p class="mx-auto">アカウントをお持ちでない方</p>
+    <%= link_to "ユーザー登録", new_user_path, class: "m-auto text-sky-400 underline decoration-sky-400" %>
+  </div>
+

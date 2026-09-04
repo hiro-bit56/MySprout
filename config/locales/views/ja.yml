@@ -7,7 +7,7 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
-      remember: 自動ログインの有効化
+      remember: 次回から自動ログイン
   defaults:
     submit:
       login: ログイン
@@ -40,7 +40,6 @@ ja:
   user_sessions:
     new:
       title: ログイン
-      to_users_page: ユーザー登録ページへ
     create:
       success: ログインしました
       alert: ログインに失敗しました
