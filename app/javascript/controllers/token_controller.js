@@ -22,10 +22,10 @@ export default class extends Controller {
       // ボタンの有効化・無効化
       if (data.has_token){
         this.issueBtnTarget.disabled = true;
-        this.issueBtnTarget.classList.replace("bg-[#98d98e]/70", "bg-[#808080]/70");
+        this.issueBtnTarget.classList.replace("bg-[#98d98e]/50", "bg-[#808080]/50");
         this.issueBtnTarget.textContent = "発行済み";
         this.clearBtnTarget.disabled = false;
-        this.clearBtnTarget.classList.replace("bg-[#808080]/70", "bg-[#98d98e]/70");
+        this.clearBtnTarget.classList.replace("bg-[#808080]/50", "bg-[#98d98e]/50");
       }
       // トークンをクリップボードへコピー
       if (tokenCopy(data.token)){
@@ -61,10 +61,10 @@ export default class extends Controller {
       // ボタンの有効化・無効化
       if (!data.has_token){
         this.issueBtnTarget.disabled = false;
-        this.issueBtnTarget.classList.replace("bg-[#808080]/70", "bg-[#98d98e]/70");
+        this.issueBtnTarget.classList.replace("bg-[#808080]/50", "bg-[#98d98e]/50");
         this.issueBtnTarget.textContent = "トークン発行";
         this.clearBtnTarget.disabled = true;
-        this.clearBtnTarget.classList.replace("bg-[#98d98e]/70", "bg-[#808080]/70");
+        this.clearBtnTarget.classList.replace("bg-[#98d98e]/50", "bg-[#808080]/50");
       }
       alert(data.message)
     } catch (error) {
