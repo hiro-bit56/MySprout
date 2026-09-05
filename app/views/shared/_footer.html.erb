@@ -1,12 +1,12 @@
 <div class="flex flex-row">
-  <div class="flex-1 h-[60px] <%= footer_active?(:home) ? "bg-[#98d98e]/70" : "bg-[#808080]/20" %>">
+  <div class="flex-1 h-[60px] <%= footer_active?(:home) ? 'bg-[#98d98e]/70' : 'bg-[#808080]/20' %>">
     <%= link_to homes_path do %>
       <%= image_tag("footer/home.svg", size: "40",class: "mx-auto") %>
     <% end %>
     <p class="w-full h-[20px] text-center text-[14px]"><%= t("footer.home") %></p>
   </div>
 
-  <div class="flex-1 h-[60px] <%= footer_active?(:record) ? "bg-[#98d98e]/70" : "bg-[#808080]/20" %>">
+  <div class="flex-1 h-[60px] <%= footer_active?(:record) ? 'bg-[#98d98e]/70' : 'bg-[#808080]/20' %>">
     <%= link_to new_mood_record_path do %>
       <%= image_tag("footer/record.svg", size: "40",class: "mx-auto") %>
     <% end %>
@@ -16,14 +16,14 @@
   <div class="flex-1 h-[60px] bg-[#808080]/20">
   </div>
 
-  <div class="flex-1 h-[60px] <%= footer_active?(:link) ? "bg-[#98d98e]/70" : "bg-[#808080]/20" %>">
+  <div class="flex-1 h-[60px] <%= footer_active?(:link) ? 'bg-[#98d98e]/70' : 'bg-[#808080]/20' %>">
     <%= link_to app_link_path do %>
       <%= image_tag("footer/app_link.svg", size: "40",class: "mx-auto") %>
     <% end %>
     <p class="w-full h-[20px] text-center text-[14px]"><%= t("footer.app_link") %></p>
   </div>
 
-  <div class="flex-1 h-[60px] <%= footer_active?(:support) ? "bg-[#98d98e]/70" : "bg-[#808080]/20" %>">
+  <div class="flex-1 h-[60px] <%= footer_active?(:support) ? 'bg-[#98d98e]/70' : 'bg-[#808080]/20' %>">
     <%= link_to support_list_path do %>
       <%= image_tag("footer/support.svg", size: "40",class: "mx-auto") %>
     <% end %>
