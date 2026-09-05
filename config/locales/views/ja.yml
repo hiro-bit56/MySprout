@@ -14,6 +14,7 @@ ja:
       search: 検索
       record_create: 記録する
       record_update: 上書き
+      feed_back: 送信する
     mood_level:
       very_good: 最高
       good: 良い
