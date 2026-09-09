@@ -42,6 +42,7 @@ gem "image_processing", "~> 1.2"
 
 # 「rails new」実行後に追加したGem
 gem "sorcery"
+gem "pundit"
 gem "tailwindcss-rails"
 gem "rails-i18n"
 

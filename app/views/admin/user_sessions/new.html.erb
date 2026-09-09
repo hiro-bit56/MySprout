@@ -1,0 +1,21 @@
+<% content_for(:title, t('.title')) %>
+<div class="w-[300px] mx-auto mb-5 py-3 rounded-lg bg-[#ffffff]">
+  <div class="mb-5">
+    <h1 class="text-center text-[20px]"><%= t('.title') %></h1>
+  </div>
+  <%= form_with url: admin_login_path, method: :post do |f| %>
+    <div class="flex flex-col">
+      <div class="mb-3 mx-auto w-9/10">
+        <%= f.label :email, class: "mb-1" %>
+        <%= f.email_field :email, class: "px-2 border-1 rounded-lg w-full bg-[#98d98e]/20" %>
+      </div>
+      <div class="mb-3 mx-auto w-9/10">
+        <%= f.label :password, class: "mb-1" %>
+        <%= f.password_field :password, class: "px-2 border-1 rounded-lg w-full bg-[#98d98e]/20" %>
+      </div>
+      <div class="my-3 text-center">
+        <%= f.submit t("defaults.submit.login"), class: "bg-[#98d98e]/50 px-5 py-1 rounded-lg" %>
+      </div>
+    </div>
+  <% end %>
+</div>

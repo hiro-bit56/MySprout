@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   # ルート
   root "homes#index"
 
+  # 管理画面
+  namespace :admin do
+    get 'login' => 'user_sessions#new', as: :login
+    post 'login' => "user_sessions#create"
+    post 'logout' => 'user_sessions#destroy', as: :logout
+    resources :dashboards, only: %i[index]
+  end
+
   # ユーザー登録＆ログイン
   resources :users, only: %i[new create]
   get 'login' => 'user_sessions#new', as: :login
@@ -19,6 +27,9 @@ Rails.application.routes.draw do
   # 記録画面
   resources :mood_records, only: %i[new create edit update destroy]
 
+  # API連携画面
+  resource :app_link, only: %i[show create destroy]
+
   # ヘルプ画面
   namespace :support do
     get "list" => "static_pages#list"
@@ -27,9 +38,6 @@ Rails.application.routes.draw do
     get "policy" => "static_pages#policy"
     resource :feed_backs, only: %i[new create]
   end
-
-  # API連携画面
-  resource :app_link, only: %i[show create destroy]
 
   # APIエンドポイント
   namespace :api do
