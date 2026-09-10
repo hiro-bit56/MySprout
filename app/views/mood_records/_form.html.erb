@@ -16,6 +16,7 @@
       </label>
     <% end %>
   </div>
+  <%= f.hidden_field :recording_source, value: "record" %>
   <div class="flex mb-3">
     <%= f.submit t("defaults.submit.record_create"), class: "bg-[#98d98e]/50 px-5 py-1 rounded-lg mx-auto" %>
   </div>

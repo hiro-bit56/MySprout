@@ -39,6 +39,6 @@ class MoodRecordsController < ApplicationController
 
   private
   def record_params
-    params.require(:mood_record).permit(:record_on, :mood_level)
+    params.require(:mood_record).permit(:record_on, :mood_level, :recording_source)
   end
 end

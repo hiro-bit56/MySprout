@@ -17,6 +17,7 @@ class Api::MoodRecordsController < ApplicationController
   def create
     @mood = @current_user.mood_records.build(mood_params)
     @mood.record_on = @today
+    @mood.recording_source = "api"
     if @mood.save
       render json: { message: "記録しました" }, status: :created
     else
@@ -25,6 +26,7 @@ class Api::MoodRecordsController < ApplicationController
   end
 
   def update
+    @mood.recording_source = "api"
     if @mood.update(mood_params)
       render json: { message: "上書きしました" }, status: :created
     else

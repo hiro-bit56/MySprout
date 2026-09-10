@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_09_005646) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_10_010457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -28,6 +28,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_09_005646) do
     t.datetime "created_at", null: false
     t.integer "mood_level", null: false
     t.date "record_on", null: false
+    t.integer "recording_source", default: 0, null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id", "record_on"], name: "index_mood_records_on_user_id_and_record_on", unique: true
