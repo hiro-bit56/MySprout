@@ -1,1 +1,97 @@
-<p>管理者ページ</p>
+<div class="w-full">
+  <div class="w-full flex">
+
+    <div class="w-[250px] ml-5 p-2 rounded-lg bg-[#ffffff]">
+      <div>
+        <h2 class="text-[25px] mb-5">ユーザー数<h2>
+      </div>
+      <div class="w-full pl-5">
+        <% user_count = @dashboard.user_count %>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>総ユーザー</p>
+          <p class="ml-auto"><%= user_count[:total_users_count] %>人</p>
+        </div>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>1週間以内</p>
+          <p class="ml-auto"><%= user_count[:week_users_count] %>人</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-[250px] ml-5 p-2 rounded-lg bg-[#ffffff]">
+      <div>
+        <h2 class="text-[25px] mb-5">連携使用ユーザー数<h2>
+      </div>
+      <div class="w-full pl-5">
+        <% api_used_users = @dashboard.api_used_users %>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>使用ユーザー数</p>
+          <p class="ml-auto"><%= api_used_users[:all] %>人</p>
+        </div>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>1週間以内</p>
+          <p class="ml-auto"><%= api_used_users[:week] %>人</p>
+        </div>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>1カ月以内</p>
+          <p class="ml-auto"><%= api_used_users[:month] %>人</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-[250px] ml-5 p-2 rounded-lg bg-[#ffffff]">
+      <div>
+        <h2 class="text-[25px] mb-5">低気分後の記録継続<h2>
+      </div>
+      <div class="w-full pl-5">
+        <% resume_record = @dashboard.resume_record %>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>検証件数</p>
+          <p class="ml-auto"><%= resume_record[:all_cases] %>件</p>
+        </div>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>翌日</p>
+          <p class="ml-auto"><%= resume_record[:tomorrow_ratio] %>％</p>
+        </div>
+        <div  class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>1週間以内</p>
+          <p class="ml-auto"><%= resume_record[:week_ratio] %>％</p>
+        </div>
+        <div  class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>1カ月以内</p>
+          <p class="ml-auto"><%= resume_record[:month_ratio] %>％</p>
+        </div>
+        <div  class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>記録なし</p>
+          <p class="ml-auto"><%= resume_record[:no_ratio] %>％</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-[250px] ml-5 p-2 rounded-lg bg-[#ffffff]">
+      <div>
+        <h2 class="text-[25px] mb-5">記録経路<h2>
+      </div>
+      <div class="w-full pl-5">
+        <% recording_route = @dashboard.recording_route %>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>記録件数</p>
+          <p class="ml-auto"><%= recording_route[:all_cases] %>件</p>
+        </div>
+        <div class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>ホーム</p>
+          <p class="ml-auto"><%= recording_route[:home_ratio] %>％</p>
+        </div>
+        <div  class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>記録画面</p>
+          <p class="ml-auto"><%= recording_route[:record_ratio] %>％</p>
+        </div>
+        <div  class="w-full mb-3 flex p-1 rounded-lg bg-[#808080]/30">
+          <p>アプリ連携</p>
+          <p class="ml-auto"><%= recording_route[:api_ratio] %>％</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
