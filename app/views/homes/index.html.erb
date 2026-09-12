@@ -18,6 +18,7 @@
           <%= form_with model: @mood_record do |f| %>
             <%= f.hidden_field :record_on, value: Date.current %>
             <%= f.hidden_field :mood_level, value: mood %>
+            <%= f.hidden_field :recording_source, value: "home" %>
             <label>
               <%= image_tag "mood_icon/#{mood}.svg", size: "40" %>
               <%= f.submit t("defaults.mood_level.#{mood}") %>
