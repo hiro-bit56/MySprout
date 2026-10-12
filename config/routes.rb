@@ -26,6 +26,12 @@ Rails.application.routes.draw do
 
   # 記録画面
   resources :mood_records, only: %i[new create edit update destroy]
+  
+  # グラフ画面
+  namespace :graph do
+    resources :baces, only: %i[index]
+    post 'mood_month' => "moods#mood_month"
+  end
 
   # API連携画面
   resource :app_link, only: %i[show create destroy]
