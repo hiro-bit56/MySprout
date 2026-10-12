@@ -1,0 +1,26 @@
+<div>
+  <div data-controller="moodgraph" id="mood_graph" class="w-full mb-5 py-5 rounded-lg bg-[#ffffff]">
+    <h2 class="mb-5 text-center text-[20px]">気分</h2>
+    <div class="w-3/4 mb-3 mx-auto rounded-lg bg-[#98d98e]/50">
+      <%= button_tag "30日分", type: "button", class: "w-full"%>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex mx-auto mb-5">
+        <div class="px-5 rounded-lg bg-[#98d98e]/50">
+          <%= button_tag "<", type: "button", class: "w-full", data: { action: "click->moodgraph#backMonth" } %>
+        </div>
+        <p id="date-range" class="mx-5"></p>
+        <div class="px-5 rounded-lg bg-[#98d98e]/50">
+          <%= button_tag ">", type: "button", class: "w-full", data: { action: "click->moodgraph#nextMonth" } %>
+        </div>
+      </div>
+      <div class="w-9/10 mx-auto">
+        <canvas id="moodGraph"></canvas>
+      </div>
+    </div>
+  </div>
+  <div id="sleepGraph">
+  </div>
+  <div id="energyGraph">
+  </div>
+</div>

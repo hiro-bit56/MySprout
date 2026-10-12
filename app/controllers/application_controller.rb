@@ -30,6 +30,8 @@ class ApplicationController < ActionController::Base
       controller_path == "homes"
     when :record
       controller_path == "mood_records"
+    when :graph
+      controller_path.start_with?("graph/")
     when :link
       controller_path == "app_links"
     when :support
